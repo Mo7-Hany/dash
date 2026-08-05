@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='pos.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='inventory.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>POS</title>
+</head>
+<body>
+    {% extends 'inventory.html' %}
+    {%block body%}
+    <header>
+            <h1>selling point</h1>
+    </header>
+    
+        <section><div class="mid">
+            <p>Mangment</p>
+            <div class="search">
+                <form action="" method="get">
+                    <input type="search" name="s" placeholder="search for product....">
+                    <button type="submit">Search</button>
+                </form>  
+            </div>
+        </section>
+        <section class="bottom">
+        <div class="change">
+            <table>
+                <tr class="search-titels">
+                        <th>Number</th> 
+                        <th>Date</th>
+                        <th>Item Name</th> 
+                        <th>Type</th>
+                        <th>SKU</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                        <th>Price</th>
+                </tr>
+            {%for data1 in data%}
+                <tr class="search-info">
+                    <td>{{data1['rowid'] }}</td>
+                    <td>{{data1['date'] }}</td>
+                    <td>{{data1['item_names'] }}</td>
+                    <td>{{data1['type']}}</td>
+                    <td>{{data1['sku'] }}</td>
+                    <td>{{data1['quantity'] }}</td>
+                    <td>{{data1['status'] }}</td>
+                    <td>{{data1['price'] }}</td>
+                </tr>
+            {%endfor%}
+            </table>  
+            <hr> 
+        </div>
+    </section>
+    <section class="select">
+        <form action="">
+            <input type="search" name="s" placeholder="search for product....">
+            <datalist id="prodacts">
+                {% for item in data %}
+                <option value="{{ item['item_names'] }}">
+                {% endfor %}
+            </datalist>
+        </form>
+    </section>   
+    {%endblock%}
+</body>
+<script>
+function checkUpdate(field) {
+    // بنشوف الـ checkbox متعلم عليه ولا لأ
+    var checkBox = document.getElementById(field + "Check");
+    // بنشوف الخانة اللي المفروض تظهر
+    var inputDiv = document.getElementById(field + "Input");
+    
+    if (checkBox.checked == true){
+        inputDiv.style.display = "block"; // اظهرها
+    } else {
+        inputDiv.style.display = "none";  // اخفيها
+    }
+}
+</script>
+</html>

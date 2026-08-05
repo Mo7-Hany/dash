@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    {% block body %} 
+     <header class="top">
+        <h1>Store Dashboard</h1>
+        <p class="welcpme">Welcome, Mohamed</p>  
+     </header>
+     <section class="cards">
+        <div class="card" id="product1">
+              <p class="titel">Total products <span><i class='fa-solid fa-boxes-stacked'></i></span></p>
+              
+              <h1 class="info">1,240</h1>
+              <p class="note">+5 today</p>
+        </div>
+        <div class="card" id="product2">
+              <p class="titel">Few varieties<span><i class='fa-solid fa-box-open'></i></span></p>    
+              <h1 class="info">12</h1>
+              <p class="note">Requires attention</p>
+        </div>
+        <div class="card" id="product3">
+              <p class="titel">Today's profits<span><i class='fa-solid fa-file-invoice-dollar'></i></span></p>
+              
+              <h1 class="info">3,450</h1>
+              <p class="note">vs 3200 yesterday</p>
+        </div>
+        <div class="card" id="product4">
+              <p class="titel">Finished items<span><i class='fa-solid fa-box-archive'></i></span></p>
+              <h1 class="info">5</h1>
+              <p class="note">Immediate restock</p>
+        </div>
+     </section>
+     <section class="Dashboard">
+            <h2 id="titel">Recent Inventory Activity</h2>
+            <table>
+                  <tr class="Dashboard-titels">
+                        <th>Date</th>
+                        <th>Item Name</th> 
+                        <th>Type</th>
+                        <th>SKU</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                        <th>Price</th>
+                  </tr>
+                  {%for data1 in data%}
+                  <tr class="Dashboard-info">
+                      <td>{{data1['date'] }}</td>
+                      <td>{{data1['item_names'] }}</td>
+                      <td>{{data1['type'] }}</td>
+                      <td>{{data1['sku'] }}</td>
+                      <td>{{data1['quantity'] }}</td>
+                      <td>{{data1['status'] }}</td> 
+                      <td>{{data1['price'] }}</td>
+                  
+                  </tr>
+                  {%endfor%}
+            </table>      
+            <hr>
+     </section>
+    {% endblock %}
+</body>
+</html>

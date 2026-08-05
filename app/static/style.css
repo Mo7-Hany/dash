@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: rgba(155, 218, 255, 0.623);
+}
+
+
+
+.top{
+    display: flex;
+    margin-top: 45px;
+    margin-left: 50px;
+    font-family: 'cairo' , sans-serif;
+    flex-direction: column;
+    
+}
+
+.cards{
+    display: flex;
+    justify-content: left center;
+    justify-content: space-between;
+    margin: 45px 50px;
+    font-family: 'cairo' , sans-serif;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; 
+    width: 90%; 
+}
+   
+
+.card {
+    border-radius: 18px; 
+    padding: 30px; 
+    min-height: 160px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    color: white;
+    font-family: 'Cairo', sans-serif;
+    position: relative; 
+}
+
+.card:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); 
+}
+
+
+#product1 { background-color: #4a90e2; }
+#product2 { background-color: #f39d12d5; }
+#product3 { background-color: #27ae60; }
+#product4 { background-color: #e74c3c; }
+
+
+.titel {
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titel span {
+    font-size: 2.2rem; 
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    padding-bottom: 20px;
+}
+
+.Dashboard{
+    display: flex;
+    box-shadow: inset;
+    background-color:#ffffff;
+    margin: 45px;
+    border-radius: 20px;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#titel{
+    padding: 20px;
+    font-family: 'Cairo';
+}
+
+.Dashboard-titels {
+    background-color: rgb(226, 225, 225);
+    border-radius: 58px;
+    
+}
+
+/* .inventory-titels{
+    border-radius: 10px;
+} */
+
+
+.Dashboard-titels th{
+    padding:10px 0;
+}    
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    border-bottom: black;
+}
+
+td,th{
+    text-align: center;
+}
+
+td{
+    padding: 20px;
+}
+
+
+tbody tr:nth-child(odd) {
+    background-color: rgba(166, 220, 252, 0.623);
+  
+}
+
+tbody tr{
+    background-color: rgb(208, 255, 255);
+    transition: 0.7s ease;
+}

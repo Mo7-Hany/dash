@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='inventory.css') }}">
+    <title>Invetory</title>
+</head>
+<body>
+    {%block body%}
+    <headr class="top">
+        <p>Management</p>
+        <h1 class="titel">production-list</h1>
+    </headr>
+    <section class="mid">
+         <div class="search">
+            <form action="" method="get">
+                  <input type="search" name="s" placeholder="search for product....">
+                  <button type="submit">Search</button>
+            </form>  
+         </div>  
+    </section>
+    <section class="bottom">
+        <div class="change">
+            <table>
+                  <tr class="search-titels">
+                        <th>Number</th> 
+                        <th>Date</th>
+                        <th>Item Name</th> 
+                        <th>Type</th>
+                        <th>SKU</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                        <th>Price</th>
+                  </tr>
+                  {%for data1 in data%}
+                  <tr class="search-info">
+                      <td>{{data1['rowid'] }}</td>
+                      <td>{{data1['date'] }}</td>
+                      <td>{{data1['item_names'] }}</td>
+                      <td>{{data1['type']}}</td>
+                      <td>{{data1['sku'] }}</td>
+                      <td>{{data1['quantity'] }}</td>
+                      <td>{{data1['status'] }}</td>
+                      <td>{{data1['price'] }}</td>
+                  </tr>
+                  {%endfor%}
+            </table>  
+            <hr> 
+        </div>
+    </section>
+    {%endblock%}
+</body>
+</html>
+
